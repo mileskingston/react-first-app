@@ -80,7 +80,7 @@ class App extends React.Component {
     const desc = move? 'Move #' + move : 'Start';
 
       return (
-        <li key={move}>
+        <li key={move} className={(move === history.length - 1? 'current' : '')}>
           <a href="#" onClick={() => this.jumpTo(move)}>{desc}</a>
         </li>
       );
@@ -125,6 +125,7 @@ function calculateWinner(squares) {
   ];
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
+
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return squares[a];
     }

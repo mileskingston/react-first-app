@@ -59,10 +59,13 @@
 .game-info ol li a {  
   display: block;
   padding: 15px;
-  background-color: #fff;  
+  background-color: #fff;
 }
 .game-info ol li a:hover {  
   background-color: #eee;
+}
+.game-info ol .current a {  
+  font-weight: bold;
 }
 
 .game-info .status {
