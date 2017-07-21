@@ -22,18 +22,24 @@ class Board extends React.Component {
   render() {
     return (
       <div>
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
+        {this.renderSquare(0)}
+        {this.renderSquare(1)}
+        {this.renderSquare(2)}
+        {this.renderSquare(3)}
+        {this.renderSquare(4)}
+        {this.renderSquare(5)}
+        {this.renderSquare(6)}
+        {this.renderSquare(7)}
+        {this.renderSquare(8)}
       </div>
     );
   }
+}
+
+function ResetButton(props) {
+  return (
+    <button className="btn btn-primary" type="button" onClick={props.onClick}>Reset</button>
+  );
 }
 
 class App extends React.Component {
@@ -46,6 +52,8 @@ class App extends React.Component {
       stepNumber: 0,
       xIsNext: true
     };
+
+    console.log(this.squares);
   }
 
   handleClick(i) {
@@ -62,13 +70,23 @@ class App extends React.Component {
       }]),
       xIsNext: !this.state.xIsNext,
       stepNumber: history.length
-    });
+    });   
   }
 
   jumpTo(step) {
     this.setState({
       stepNumber: step,
-      xIsNext: (step % 2) == 0
+      xIsNext: (step % 2) === 0
+    })
+  }
+
+  resetData() {
+    this.setState({
+      history: [{
+        squares: Array(9).fill(null)
+      }],
+      stepNumber: 0,
+      xIsNext: true,
     })
   }
   
@@ -81,7 +99,7 @@ class App extends React.Component {
 
       return (
         <li key={move} className={(move === history.length - 1? 'current' : '')}>
-          <a href="#" onClick={() => this.jumpTo(move)}>{desc}</a>
+          <a onClick={() => this.jumpTo(move)}>{desc}</a>
         </li>
       );
     });
@@ -89,13 +107,18 @@ class App extends React.Component {
     let status;
     if (winner) {
       status = 'Winner: ' + winner;
-    } else {
+    } 
+    else if(this.state.stepNumber === 9) {
+      status = 'Draw';
+    }
+    else {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
       <div className="game container">
         <div className={"col col-5 game-board " + (winner? 'disabled': '')}>
+          
           <Board
             squares={current.squares}
             onClick={(i) => this.handleClick(i)}
@@ -103,8 +126,11 @@ class App extends React.Component {
         </div>
         <div className="col col-5 game-info">
           <div>
-          <span className={"status " + (winner? 'winner': '')}>{status}</span>
-          <ol>{moves}</ol>
+            <div className="actions">
+              {(winner || this.state.stepNumber === 9) && <ResetButton onClick={() => this.resetData()} />}
+            </div>
+            <span className={"status " + (winner? 'winner': '')}>{status}</span>
+            <ol>{moves}</ol>
           </div>
         </div>
       </div>
