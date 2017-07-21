@@ -1,0 +1,19 @@
+.btn {
+  background-color: #1abc9c;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 10px;
+  transition: background 200ms;
+  width: 100%;
+}
+.btn:hover {
+  background-color:  #16a085;  
+}
+@media screen and (min-width: 559px) {
+  .btn {
+    max-width: 200px;
+  }
+}

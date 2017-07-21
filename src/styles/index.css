@@ -21,27 +21,32 @@ button {
   text-transform: uppercase;
 }
 
-.btn {
-  background-color: #1abc9c;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  display: inline-block;
-  margin: 0 auto;
-  padding: 10px;
-  transition: background 200ms;
-  width: 100%;
-}
-.btn:hover {
-  background-color:  #16a085;  
-}
-@media screen and (min-width: 559px) {
-  .btn {
-    max-width: 200px;
-  }
-}
-
 button:focus,
 a:focus {
   outline: 1px dotted #000;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: calc(700px - 30px);
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+}
+.container:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.col {
+  float: left;
+}
+.col-5 {
+  width: 100%;
+}
+@media screen and (min-width: 559px) {
+  .col-5 {
+    width: 50%;
+  }
 }

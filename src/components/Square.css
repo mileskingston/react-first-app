@@ -1,0 +1,21 @@
+.square {
+  background-color: #fff;
+  border: 1px solid #999;
+  cursor: pointer;
+  float: left;
+  font-size: 23px;
+  font-weight: bold;
+  height: 60px;
+  line-height: 60px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 60px;
+}
+.square:nth-child(3n + 1) {
+  clear: both;
+}
+.square:focus {
+  outline: none;
+}
