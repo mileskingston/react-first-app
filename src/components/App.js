@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Square from './Square.js';
 import Board from './Board.js';
-import ResetButton from './ResetButton.js';
+import Button from './Button.js';
 import './App.css';
 
 class App extends React.Component {
@@ -91,7 +91,8 @@ class App extends React.Component {
         <div className="col col-5 game-info">
           <div>
             <div className="actions">
-              {(winner || this.state.stepNumber === 9) && <ResetButton onClick={() => this.resetData()} />}
+              {(winner || this.state.stepNumber === 9) && 
+              <Button label={'Reset'} onClick={() => this.resetData()} />}
             </div>
             <ol>{moves}</ol>
           </div>
