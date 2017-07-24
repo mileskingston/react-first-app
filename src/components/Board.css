@@ -3,7 +3,7 @@
   text-align: center;
 }
 .game-board:not(.disabled) .square:hover {
-  background-color: #eee;
+  background-color: #1abc9c;
 }
 .game-board > div {
   display: inline-block;
@@ -21,27 +21,26 @@
   }
 }
 .game-info ol {
-  border: 1px solid #ccc;
-  border-bottom-width: 5px;
   list-style: none;
   padding-left: 0;
 }
 .game-info ol li {  
-  border-bottom: 1px solid #ccc;  
+  border-bottom: 1px solid #a2a2a2;  
 }
-.game-info ol li:last-child {  
-  border-bottom: none;  
-}
-.game-info ol li a {  
-  background-color: #fff;
+.game-info ol li a {
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
   display: block;
   padding: 15px;
+  transition: background-color 200ms;
+}
+.game-info ol .current:not(:first-child) a {  
+  background-color: #5b636f;  
+  font-weight: bold;
 }
 .game-info ol li a:hover {  
-  background-color: #eee;
-}
-.game-info ol .current a {  
-  font-weight: bold;
+  background-color: #16a085;
 }
 
 .game-info .actions {

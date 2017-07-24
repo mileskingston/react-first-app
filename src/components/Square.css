@@ -1,6 +1,6 @@
 .square {
-  background-color: #fff;
-  border: 1px solid #999;
+  background-color: #39414E;
+  border: 1px solid #ccc;
   cursor: pointer;
   float: left;
   font-size: 23px;
@@ -12,10 +12,14 @@
   padding: 0;
   text-align: center;
   width: 60px;
+  transition: background-color 200ms;
 }
 .square:nth-child(3n + 1) {
   clear: both;
 }
 .square:focus {
   outline: none;
+}
+.square.value {
+  background-color: #fff;
 }
