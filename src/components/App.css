@@ -16,7 +16,7 @@
 
 .disabled .square,
 .disabled .game-info ol li {
-  /* pointer-events: none; */
+   pointer-events: none; 
 }
 .disabled .game-board,
 .disabled .game-info ol {
